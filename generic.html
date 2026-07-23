@@ -1,0 +1,654 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Projects - HNEL Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+		<style>
+			/* ===== Project Tabs — scoped additions ===== */
+			:root{
+				--excel-color:#217346;
+				--sql-color:#3b82c4;
+				--powerbi-color:#f2c811;
+				--python-color:#3776ab;
+			}
+
+			.tabs-wrapper .tab-nav{
+				display:flex;
+				justify-content:center;
+				align-items:center;
+				gap:15px;
+
+				list-style:none;
+				padding:15px;
+				margin:0 0 45px;
+			}
+
+			.tabs-wrapper .tab-nav li{
+				margin:0;
+			}
+
+			.tabs-wrapper .tab-btn{
+
+				display:flex;
+				align-items:center;
+				gap:10px;
+
+				padding:12px 28px;
+
+				border:none;
+				border-radius:40px;
+
+				background:white;
+
+				color:#444;
+
+				font-size:15px;
+				font-weight:700;
+
+				transition:.35s;
+
+				cursor:pointer;
+
+				box-shadow:0 4px 10px rgba(0,0,0,.06);
+
+			}
+
+			.tabs-wrapper .tab-btn i{
+
+				font-size:20px;
+				width:24px;
+				text-align:center;
+
+			}
+			.tabs-wrapper .tab-btn:hover{
+
+				transform:translateY(-3px);
+
+				color:white;
+
+			}
+
+			.tab-btn[data-tab="excel"].is-active,
+			.tab-btn[data-tab="excel"]:hover{
+
+				background:#217346;
+				color:white;
+
+			}
+			.tab-btn[data-tab="sql"].is-active,
+			.tab-btn[data-tab="sql"]:hover{
+
+				background:#00758F;
+				color:white;
+
+			}
+			.tab-btn[data-tab="powerbi"].is-active,
+			.tab-btn[data-tab="powerbi"]:hover{
+
+				background:#F2C811;
+				color:black;
+
+			}
+			.tab-btn[data-tab="python"].is-active,
+			.tab-btn[data-tab="python"]:hover{
+
+				background:#3776AB;
+				color:white;
+
+			}
+			.tabs-wrapper .tab-btn.is-active{
+				color:#fff;
+			}
+
+			.tab-panel{
+				display:none;
+				animation:tabFade 0.35s ease;
+			}
+
+			.tab-panel.is-active{
+				display:block;
+			}
+
+			@keyframes tabFade{
+				from{ opacity:0; transform:translateY(6px); }
+				to{ opacity:1; transform:translateY(0); }
+			}
+
+			.tab-panel .tool-pills{
+				list-style:none;
+				display:flex;
+				flex-wrap:wrap;
+				gap:0.5em;
+				padding:0;
+				margin:1em 0 1.5em 0;
+			}
+
+			.tab-panel .tool-pills li{
+				font-size:0.75em;
+				font-weight:600;
+				letter-spacing:0.03em;
+				text-transform:uppercase;
+				padding:0.4em 0.9em;
+				border-radius:100px;
+				border:1px solid rgba(255,255,255,0.15);
+				color:rgba(0, 0, 0, 0.75);
+			}
+
+			#excel .tool-pills li{ border-color:rgba(33,115,70,0.5); }
+			#sql .tool-pills li{ border-color:rgba(59,130,196,0.5); }
+			#powerbi .tool-pills li{ border-color:rgba(242,200,17,0.5); }
+			#python .tool-pills li{ border-color:rgba(55,118,171,0.5); }
+
+			.tab-panel .panel-heading{
+
+				display:flex;
+				align-items:center;
+				gap:15px;
+				margin-bottom:25px;
+
+			}
+
+			.tab-panel .panel-heading h2{
+
+				margin:0;
+
+			}
+
+			.tab-panel .panel-heading i{
+
+				font-size:34px;
+				width:40px;
+				text-align:center;
+
+			}
+
+			.projects-grid{
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 2rem;
+				margin-top: 2rem;
+			}
+
+			@media screen and (max-width: 980px){
+				.projects-grid{
+					grid-template-columns: 1fr;
+				}
+			}
+
+			.project-item{
+				border: solid 1px rgba(0,0,0,.12);
+				padding: 2rem;
+				text-align: center;
+				background: #fff;
+			}
+
+			.project-item img{
+				width: 100%;
+				height: 220px;
+				object-fit: contain;
+				margin-bottom: 1rem;
+			}
+			
+		
+			.project-item h3{
+				margin-bottom: 1rem;
+				font-size: 1.3rem;
+			}
+
+			.project-item p{
+				min-height: 70px;
+			}
+
+			.project-item .button{
+				margin-top: 1rem;
+			}
+			#excel .panel-heading .fa-fw{ color:var(--excel-color); }
+			#sql .panel-heading .fa-fw{ color:var(--sql-color); }
+			#powerbi .panel-heading .fa-fw{ color:var(--powerbi-color); }
+			#python .panel-heading .fa-fw{ color:var(--python-color); }
+
+			@media screen and (max-width: 480px){
+				.tabs-wrapper .tab-btn{ font-size:0.78em; padding:0.7em 0.2em; }
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">HNEL</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Main</a></li>
+							<li class="active"><a href="generic.html">Projects</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post tabs-wrapper">
+								<header class="major">
+									<span class="date">Portfolio</span>
+									<h1>Projects by<br />
+									Track</h1>
+									<p>Four tools, four ways of turning raw data into a decision.<br />
+									Pick a track to see the project behind it.</p>
+								</header>
+
+								<!-- Tab navigation -->
+								<ul class="tab-nav">
+									<li><button type="button" class="tab-btn is-active" data-tab="excel"><i class="fas fa-file-excel fa-fw"></i> Excel</button></li>
+									<li><button type="button" class="tab-btn" data-tab="sql"><i class="fas fa-database fa-fw"></i> SQL</button></li>
+									<li><button type="button" class="tab-btn" data-tab="powerbi"><i class="fas fa-chart-pie fa-fw"></i> Power BI</button></li>
+									<li><button type="button" class="tab-btn" data-tab="python"><i class="fab fa-python fa-fw"></i> Python</button></li>
+								</ul>
+
+								<!-- Excel panel -->
+								<div class="tab-panel is-active" id="excel">
+									<div class="panel-heading">
+										<i class="fas fa-file-excel fa-fw"></i>
+										<h2>Excel</h2>
+									</div>
+									<div class="image main">
+										<img src="images/jz9fUTcc9uvoDf-rrTyoh_G78U5-x2drg0G0WHiBOXPy_df9kXVaOLiQiZhVJiSt4TISaNr53OehaF9BhojX7Gb-wqEA5QA0VhD_FyWVnyXdVNpq-gTR6SGkIEzLNGLULlVr6c0HgOMiCoDlXkJtbs1ePGBoXpHJR0NRsqya74PWa8jWPPFIRvIsdVGmtM.jpeg" alt="Excel Sales Dashboard" />
+									</div>
+									<ul class="tool-pills">
+										<li>Pivot Tables</li>
+										<li>Pivot Charts</li>
+										<li>Slicers</li>
+										<li>Conditional Formatting</li>
+										<li>KPIs</li>
+									</ul>
+									<p>Built an interactive sales dashboard that tracks business performance at a glance. Pivot Tables and Pivot Charts summarize the raw sales data, Slicers let the viewer filter by region, product, or time period instantly, and Conditional Formatting highlights KPIs the moment they fall outside target.</p>
+									<p>The goal was speed of insight: anyone opening the workbook should be able to answer "how are we doing this quarter?" within seconds, without touching a single formula.</p>
+								<h2>
+									<i class="fas fa-file-excel"></i>
+									Excel Projects
+								</h2>
+
+								<div class="projects-grid">
+
+									<!-- Project 1 -->
+
+									<div class="project-item">
+
+										<h3>Udemy Courses Analyze</h3>
+
+										<img src="images/udemy Dashboard.png" alt="">
+
+										<p>
+											Dashboard provides a comprehensive analysis of Udemy courses data. 
+											It helps analyze course performance, subscriber behavior, course categories, 
+											pricing impact, and yearly trends using interactive Excel visualizations and KPIs.
+										</p>
+
+										<a href="./ExcelProjects/Udemy Courses Analyze.html"
+										target="_blank"
+										class="button">
+
+											View Project
+
+										</a>
+
+									</div>
+
+									<!-- Project 2 -->
+
+									<div class="project-item">
+
+										<h3>Employee Salaries Analysis</h3>
+
+										<img src="images/Salary Report Analysis.png" alt="">
+
+										<p>
+											It enables HR teams and business managers to monitor workforce distribution, 
+											compare salaries across departments, analyze employee demographics, 
+											and gain insights through interactive dashboards and (KPIs).
+											</p>
+
+										<a href="./ExcelProjects/Employee Salaries Analysis.html"
+										target="_blank"
+										class="button">
+
+											View Project
+
+										</a>
+
+									</div>
+
+									<!-- Project 3-->
+
+									<div class="project-item">
+
+										<h3>Coffee Shop Sales Analysis</h3>
+
+										<img src="images/CSH Orders Dashboard.png" alt="">
+
+										<p>
+											This Excel dashboard provides a comprehensive analysis of coffee shop sales data. 
+											It helps monitor sales performance, product profitability, customer purchasing patterns, 
+											and daily sales trends through interactive dashboards and key performance indicators (KPIs).
+										</p>
+
+										<a href="./ExcelProjects/Coffee Shop Sales Analysis.html"
+										target="_blank"
+										class="button">
+
+
+											View Project
+
+										</a>
+										
+
+									</div>
+
+
+								</div>
+								</div>
+
+								<!-- SQL panel -->
+								
+
+								<!-- Power BI panel -->
+								<div class="tab-panel" id="powerbi">
+									<div class="panel-heading">
+										<i class="fas fa-chart-pie fa-fw"></i>
+										<h2>Executive Dashboard — Power BI</h2>
+									</div>
+									<div class="image main">
+										<img src="images/Sport Dashboard.png" alt="Power BI Executive Dashboard" />
+									</div>
+									<ul class="tool-pills">
+										<li>KPIs</li>
+										<li>Sales Trends</li>
+										<li>Regional Analysis</li>
+										<li>Dynamic Filtering</li>
+									</ul>
+									<p>Designed an executive-facing Power BI dashboard that gives leadership a single screen for the health of the business. KPI cards surface the headline numbers, trend visuals track sales over time, and a regional breakdown shows where performance is strongest and where it's lagging.</p>
+									<p>Dynamic filtering means one dashboard serves every audience: the same report answers a country manager's questions and a CFO's questions, just filtered differently.</p>
+								<h2>
+									<i class="fas fa-chart-pie fa-fw"></i>
+									Power BI Projects
+								</h2>
+
+								<div class="projects-grid">
+
+									<!-- Project 1 -->
+									 <div class="project-item">
+
+										<h3>Food Mart <br> Sales & Profit</h3>
+
+										<img src="images/Food Mart Dashboard.png" alt="">
+
+										<p>
+											dashboard provides a comprehensive analysis of Food Mart sales performance. 
+											It helps businesses monitor sales, profit, customer behavior,
+											and product performance through interactive visualizations.
+										</p>
+
+										<a href="./Projects/Food Mart Sales And Profit.html"
+										target="_blank"
+										class="button">
+
+											View Project
+
+										</a>
+
+									</div>
+									<!-- Project 2 -->
+
+									<div class="project-item">
+
+										<h3>Business Sales Performance</h3>
+
+										<img src="images/Business Sales Dashboard.png" alt="">
+
+										<p>
+											provides a comprehensive analysis of business sales performance. 
+											It enables decision-makers to monitor revenue trends, 
+											analyze sales distribution, and gain valuable business insights.
+										</p>
+
+										<a href="./Projects/Business Sales Performance.html"
+										target="_blank"
+										class="button">
+
+											View Project
+
+										</a>
+
+									</div>
+
+									
+									<!-- Project 3 -->
+
+									<div class="project-item">
+
+										<h3>Budget vs Actual Performance</h3>
+
+										<img src="images/Budget vs Actual Dashboard.png" alt="">
+
+										<p>
+											dashboard analyzes Budget vs Actual performance, 
+											helping stakeholders monitor financial performance, identify variances, 
+											and support data-driven decision-making.
+										</p>
+
+										<a href="./Projects/Budget vs Actual Performance.html"
+										target="_blank"
+										class="button">
+
+											View Project
+
+										</a>
+
+									</div>
+
+									
+									<!-- Project 4 -->
+									
+									<div class="project-item">
+
+										<h3>Car Sales Analysis</h3>
+
+										<img src="images/Car sales Dashboard(!).png" alt="">
+
+										<p>
+											provides a comprehensive analysis of car sales performance. 
+											It enables businesses to monitor revenue, sales trends, customer behavior, 
+											and product performance.
+										</p>
+
+										<a href="./Projects/Car Sales Analysis.html"
+										target="_blank"
+										class="button">
+
+											View Project
+
+										</a>
+
+									</div>
+
+
+									<!-- Project 5 -->
+									<div class="project-item">
+
+										<h3>Data Professional Survey Breakdown</h3>
+
+										<img src="images/Survey Dashboard.png" alt="">
+
+										<p>
+											Interactive analysis of a global survey conducted among data professionals. 
+											It explores respondents' demographics, career paths, salaries, job satisfaction, 
+											programming language preferences, and challenges faced when entering the data industry.
+										</p>
+
+										<a href="./Projects/Data Professional Survey Breakdown.html"
+										target="_blank"
+										class="button">
+
+											View Project
+
+										</a>
+
+									</div>
+
+
+									<!-- Project 6 -->
+									<div class="project-item">
+
+										<h3>Hospital <br> Analysis</h3>
+
+										<img src="images/Hospital Dashoard.png" alt="">
+
+										<p>
+											comprehensive analysis of hospital operations and patient data. 
+											It helps healthcare stakeholders monitor key performance indicators, evaluate patient outcomes, 
+											optimize resource utilization, and support data-driven decision-making.
+										</p>
+
+										<a href="./Projects/Hospital Analysis.html"
+										target="_blank"
+										class="button">
+
+											View Project
+
+										</a>
+
+									</div>
+
+
+								</div>
+								</div>
+
+								<!-- Python panel -->
+								
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>Shebin Elkom, menofia<br />
+								</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="tel:+201099430032">(+20) 01099430032</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:hatemelhadry7@gmail.com">hatemelhadry7@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li>
+										<a href="https://www.facebook.com/ha.tem.445356" target="_blank"
+										class="icon brands alt fa-facebook-f">
+											<span class="label">Facebook</span>
+										</a>
+									</li>
+
+									<li>
+										<a href="https://instagram.com/ha.tem" target="_blank"
+										class="icon brands alt fa-instagram">
+											<span class="label">Instagram</span>
+										</a>
+									</li>
+
+									<li>
+										<a href="https://linkedin.com/in/hatem-el-hadary" target="_blank"
+										class="icon brands alt fa-linkedin-in">
+											<span class="label">LinkedIn</span>
+										</a>
+									</li>
+
+									<li>
+										<a href="https://github.com/Hatem207" target="_blank"
+										class="icon brands alt fa-github">
+											<span class="label">GitHub</span>
+										</a>
+									</li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; HNEL</li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+		<!-- Tabs logic -->
+			<script>
+				(function(){
+					var validTabs = ['excel', 'sql', 'powerbi', 'python'];
+
+					function activateTab(name){
+						if (validTabs.indexOf(name) === -1) return;
+
+						document.querySelectorAll('.tab-btn').forEach(function(btn){
+							btn.classList.toggle('is-active', btn.getAttribute('data-tab') === name);
+						});
+						document.querySelectorAll('.tab-panel').forEach(function(panel){
+							panel.classList.toggle('is-active', panel.id === name);
+						});
+					}
+
+					document.querySelectorAll('.tab-btn').forEach(function(btn){
+						btn.addEventListener('click', function(){
+							var tab = btn.getAttribute('data-tab');
+							activateTab(tab);
+							history.replaceState(null, '', '#' + tab);
+						});
+					});
+
+					// Deep-link support: generic.html#sql opens straight to the SQL tab
+					var initial = window.location.hash.replace('#', '');
+					if (validTabs.indexOf(initial) !== -1) {
+						activateTab(initial);
+					}
+				})();
+			</script>
+
+	</body>
+</html>
